@@ -1,7 +1,11 @@
+
 import 'package:flutter/material.dart';
+import 'package:tikodc/profile.dart';
 import 'package:video_player/video_player.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'dart:math' as math;
+
+import 'inscription.dart';
 
 //  ICI  C'EST LA CLASSE PRINCIPALE MAIN
 void main() {
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'TikODC',
       debugShowCheckedModeBanner: false,
       home: menuBottom(),
@@ -37,19 +41,29 @@ class _menuBottomState extends State<menuBottom> {
     });
   }
 
+
+
+final List<Widget> _pages = [
+  Accueil(),
+  Profile(),
+  Profile(),
+  Profile(),
+ MonProfil()
+];
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      body: Accueil(),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
 // ICI ON DECLARE LES MENUS DE NOTRE BOTTOM_NAV_BAR
 
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Accueil',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.flash_on),
             label: 'Now',
           ),
@@ -61,14 +75,19 @@ class _menuBottomState extends State<menuBottom> {
             label: '',
           ),
 
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.comment_outlined),
             label: 'Messages',
+            
+
+
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profil',
-          ),
+
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline,),
+              label: 'Profil',
+             
+              ),
         ],
         currentIndex: _selectedIndex,
 
@@ -77,7 +96,6 @@ class _menuBottomState extends State<menuBottom> {
         backgroundColor: Color(0xFF141518),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
-
         onTap: _onItemTapped,
       ),
     );
@@ -90,6 +108,9 @@ class Accueil extends StatelessWidget {
   Accueil({Key? key}) : super(key: key);
 
   final List<Map> tikodcItems = [
+    {
+      "video": "assets/videos/video_0.mp4",
+    },
     {
       "video": "assets/videos/video_1.mp4",
     },
@@ -188,6 +209,7 @@ class PostContent extends StatelessWidget {
             children: const [
               Text(
                 'Abonnement',
+                
                 style: TextStyle(
                     color: Colors.white54, fontWeight: FontWeight.w600),
               ),
@@ -204,6 +226,7 @@ class PostContent extends StatelessWidget {
             child: Container(
           child: Row(
             children: [
+              
               Expanded(
                   child: Container(
                 // color: Colors.red.withOpacity(0.5),
@@ -250,6 +273,7 @@ class PostContent extends StatelessWidget {
                 width: 80,
                 // color: Colors.green,
                 child: Column(
+                  // Within the `FirstRoute` widget
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
@@ -260,11 +284,11 @@ class PostContent extends StatelessWidget {
                           children: [
                             Container(
                               margin: EdgeInsets.only(bottom: 10),
-                              child: CircleAvatar(
+                              child: const CircleAvatar(
                                 radius: 20,
                                 backgroundImage:
-                                    AssetImage('assets/images/photo-5.jpeg'),
-                              ),
+                                    AssetImage('assets/images/adama.jpg'),
+                                ),
                             ),
                             Container(
                               padding: const EdgeInsets.all(2),
@@ -290,7 +314,7 @@ class PostContent extends StatelessWidget {
                           color: Colors.white.withOpacity(0.85),
                           size: 45,
                         ),
-                        Text(
+                        const Text(
                           '909.9M',
                           style: TextStyle(
                               color: Colors.white,
@@ -308,7 +332,7 @@ class PostContent extends StatelessWidget {
                           color: Colors.white.withOpacity(0.85),
                           size: 45,
                         ),
-                        Text(
+                        const Text(
                           '102.1M',
                           style: TextStyle(
                               color: Colors.white,
@@ -328,7 +352,7 @@ class PostContent extends StatelessWidget {
                           color: Colors.white.withOpacity(0.85),
                           size: 45,
                         ),
-                        Text(
+                        const Text(
                           '909.9M',
                           style: TextStyle(
                               color: Colors.white,
