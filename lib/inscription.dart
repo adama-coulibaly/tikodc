@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'Connexion.dart';
+import 'Inscription_phone.dart';
 
 void main() {
   runApp(const MonProfil());
@@ -116,7 +117,7 @@ void _openPopup(context) {
                   height: 50.0,
                 ),
                 const Text(
-                  'Connectez-vous',
+                  'Inscrivez-vous',
                   style: TextStyle(
                     fontSize: 25.0,
                   ),
@@ -150,21 +151,36 @@ void _openPopup(context) {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const <Widget>[
-                          Expanded(
+                        children:  <Widget>[
+                          const Expanded(
                             flex: 1,
                             child: FaIcon(FontAwesomeIcons.user,
                             color: Colors.grey,),
                           ),
                           Expanded(
                             flex: 2,
-                            child: Text(
+                            child: (
+                            InkWell(
+                              onTap: () {
+                                 Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                        inscription_phone(),
+                                        ),
+                                        );
+                              },
+                              child: const Text(
                               'Utiliser le téléphone ou l\'e-mail',
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.black87,
                               ),
                             ),
+
+                        
+                            
+
+                            )                           
+                             ),
                           ),
                         ],
                       ),
@@ -346,7 +362,9 @@ void _openPopup(context) {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) =>
-                                        connexion()));
+                                        connexion(),
+                                        ),
+                                        );
                     },
                     )
                     

@@ -48,7 +48,7 @@ final List<Widget> _pages = [
   Profile(),
   Profile(),
   Profile(),
- MonProfil()
+ const MonProfil()
 ];
   @override
   Widget build(BuildContext context) {
@@ -104,8 +104,15 @@ final List<Widget> _pages = [
 
 // LA page d'accueil
 
-class Accueil extends StatelessWidget {
-  Accueil({Key? key}) : super(key: key);
+class Accueil extends StatefulWidget{
+    Accueil({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _Accueil();
+
+}
+
+class _Accueil extends State<Accueil> {
 
   final List<Map> tikodcItems = [
     {
@@ -165,7 +172,7 @@ class VideoWidgets extends StatefulWidget {
   final String videoUrl;
 
   @override
-  _VideoWidgetsState createState() => _VideoWidgetsState(this.videoUrl);
+  _VideoWidgetsState createState() => _VideoWidgetsState(videoUrl);
 }
 
 class _VideoWidgetsState extends State<VideoWidgets> {
@@ -193,8 +200,15 @@ class _VideoWidgetsState extends State<VideoWidgets> {
 
 // Les contenus ici
 
-class PostContent extends StatelessWidget {
-  const PostContent({Key? key}) : super(key: key);
+class PostContent extends StatefulWidget{
+    const PostContent({Key? key}) : super(key: key);
+    
+      @override
+      State<StatefulWidget> createState()=> _PostContent();
+
+}
+
+class _PostContent extends State<PostContent> {
 
   @override
   Widget build(BuildContext buildContext) {

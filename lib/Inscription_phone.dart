@@ -3,14 +3,14 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'main.dart';
 
 void main() {
-  runApp( connexion());
+  runApp( inscription_phone());
 }
 
-class connexion extends StatelessWidget{
+class inscription_phone extends StatelessWidget{
   // const connexion({super.key});
 final List<Tab> myTabs = <Tab>[
   const Tab(text: 'Telephone',),
- const Tab(text: 'Email',) 
+ const Tab(text: 'Adresse email',) 
 ];
 
 
@@ -24,7 +24,7 @@ final List<Tab> myTabs = <Tab>[
 
       leading: const BackButton(color: Colors.black),
       title: const Center(
-        child: Text('Connexion',
+        child: Text('Inscription',
         style: TextStyle(
           color: Colors.black,
         ),
@@ -90,7 +90,7 @@ class telephone extends StatelessWidget {
     backgroundColor: Colors.black
   ),
   onPressed: () { },
-  child: const Text('Connexion',
+  child: const Text('Inscription',
   style: TextStyle(
     fontSize: 20,
   ),),
@@ -133,34 +133,38 @@ class email extends StatelessWidget {
               child: const 
               TextField(
               decoration: InputDecoration(
+                labelText: 'Pseudo',
+              ),
+              ),
+            ),
+          ),
+
+            Container(
+            child: 
+            Container(
+              child: const 
+              TextField(
+              decoration: InputDecoration(
                 labelText: 'Mot de passe',
               ),
               ),
             ),
           ),
-const SizedBox(height: 35,),
- Container(
+
+            Container(
             child: 
             Container(
-              child:  
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                        motDePasseOublier(),
-                                        ),
-                                        );
-                },
-                child: const Text('Mot de passe oublié ?',
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 20,
-              ),),
-              )
+              child: const 
+              TextField(
+              decoration: InputDecoration(
+                labelText: 'Confirmer',
+              ),
+              ),
             ),
           ),
+
   
-const SizedBox(height: 25,),
+const SizedBox(height: 5,),
           Container(
             child:
             TextButton(
@@ -170,7 +174,7 @@ const SizedBox(height: 25,),
   ),
   onPressed: () {},
   child: const InkWell(
-   child: Text('Se connecter',
+   child: Text('S\'inscrire ',
   style: TextStyle(
     fontSize: 20,
   ),
@@ -187,18 +191,3 @@ const SizedBox(height: 25,),
     );
   }
 }
-
-
-class motDePasseOublier extends StatelessWidget {
-  const motDePasseOublier({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const SizedBox(height: 20,),
-     
-    );
-  }
-}
-
-
