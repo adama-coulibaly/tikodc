@@ -298,11 +298,14 @@ class _PostContent extends State<PostContent> {
                           children: [
                             Container(
                               margin: EdgeInsets.only(bottom: 10),
-                              child: const CircleAvatar(
-                                radius: 20,
-                                backgroundImage:
-                                    AssetImage('assets/images/adama.jpg'),
-                                ),
+                              child: Container(
+                               
+                                child: const  CircleAvatar(
+                                 radius: 20,
+                                  backgroundImage:
+                                      AssetImage('assets/images/adama.jpg'),
+                                  ),
+                              ),
                             ),
                             Container(
                               padding: const EdgeInsets.all(2),
