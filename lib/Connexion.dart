@@ -144,13 +144,24 @@ const SizedBox(height: 35,),
             Container(
               child:  
               InkWell(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                        motDePasseOublier(),
-                                        ),
-                                        );
-                },
+                onTap: ()  => showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Container(child: 
+          const Text('Rénitialisé le mot de passe'),
+          ),
+          content: const Text('Téléphone'),
+                   
+          
+          actions: <Widget>[
+            
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'cancel'),
+              child: const Text('cancel'),
+            ),
+          ],
+        ),
+      ),
                 child: const Text('Mot de passe oublié ?',
               style: TextStyle(
                 color: Colors.red,
@@ -187,18 +198,4 @@ const SizedBox(height: 25,),
     );
   }
 }
-
-
-class motDePasseOublier extends StatelessWidget {
-  const motDePasseOublier({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const SizedBox(height: 20,),
-     
-    );
-  }
-}
-
 

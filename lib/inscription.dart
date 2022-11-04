@@ -23,14 +23,18 @@ class MonProfil extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-        title: const Center(
+        title:  const Center(
+         
             child: Text('Profile',
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w600,
-            ),),
-            
+            ),
+            ),
           ),
+
+
+
            backgroundColor:Colors.white,
         ),
         backgroundColor: Colors.white,

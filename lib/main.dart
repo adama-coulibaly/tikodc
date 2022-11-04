@@ -376,7 +376,7 @@ class _PostContent extends State<PostContent> {
                       ]),
                     ),
                     AnimatedLogo(),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                   ],
                 ),
               )
